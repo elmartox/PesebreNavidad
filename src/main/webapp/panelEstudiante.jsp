@@ -66,7 +66,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="eventos.jsp">Eventos</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="juegoVR.jsp">Pesebre en Realidad Aumentada</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="escribirMensajes.jsp">Mensajes Navideños</a>
                         </li>

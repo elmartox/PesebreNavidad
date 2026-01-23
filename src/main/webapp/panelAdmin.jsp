@@ -84,6 +84,7 @@
                     </li>
 
 					<li class="nav-item"><a class="nav-link" href="adminPesebres.jsp">Pesebres</a></li>
+					<li class="nav-item"><a class="nav-link" href="admin_calendario.jsp">Calendario</a></li>
                 </ul>
 
                 <!-- Usuario a la derecha -->

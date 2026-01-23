@@ -1,157 +1,160 @@
-/* RESET BÁSICO */
-html, body {
-    height: 100%;
+:root {
+    --gold: #ffce00;
+}
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* ⭐ CONTENEDOR DE ESTRELLAS */
-.stars {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 1;
+body {
+    font-family: 'Cinzel', serif;
+    overflow-x: hidden;
 }
 
-/* ANIMACIÓN DE CAÍDA */
-@keyframes caer {
-    0% { transform: translateY(-10vh) rotate(0deg); }
-    100% { transform: translateY(110vh) rotate(360deg); }
-}
-
-/* EL SPAN BASE DE ESTRELLAS Y COPOS */
-.stars span {
-    position: absolute !important;
-    opacity: 0.9;
-    animation: caer 8s linear infinite;
-    pointer-events: none !important;
-}
-
-/* ESTRELLA AMARILLA */
-.stars span.star::before {
-    content: "⭐";
-    font-size: var(--size);
-    color: #ffce00;
-    text-shadow: 0 0 4px rgba(0,0,0,0.4);
-}
-
-/* COPO ROJO */
-.stars span.snow::before {
-    content: "❄";
-    font-size: var(--size);
-    color: #ff0000;
-    text-shadow: 0 0 4px rgba(0,0,0,0.4);
-}
-
-/* ===== FONDO ===== */
+/* FONDO */
 .seccion-fondo {
-    height: 100vh;
-    background-image: url("../img/f1.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
+    min-height: 100vh;
+    background: url("../img/f1.png") center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: white;
-    font-family: "Georgia", serif;
 }
 
-/* ===== MENÚ ===== */
+/* MENÚ */
 .menu {
-    width: 100%;
     display: flex;
+    gap: 25px;
+    background: rgba(0,0,0,0.5);
+    padding: 15px;
+    width: 100%;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.07);
-    padding: 15px 0;
-    backdrop-filter: blur(5px);
-    position: relative;
-    z-index: 10;
 }
 
 .menu a {
-    color: #e6e6e6;
+    color: white;
     text-decoration: none;
-    margin: 0 40px;
-    font-size: 18px;
+    font-weight: bold;
 }
 
-.menu a:hover {
-    color: #fff;
-}
-
-/* ===== BOTÓN DE MENÚ MÓVIL ===== */
 .menu-btn {
     display: none;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-
-    .menu-btn {
-        display: block;
-        background: rgba(255,255,255,0.12);
-        color: white;
-        border: 1px solid rgba(255,255,255,0.4);
-        font-size: 18px;
-        padding: 10px 18px;
-        border-radius: 8px;
-        margin: 12px auto;
-        backdrop-filter: blur(5px);
-        cursor: pointer;
-        z-index: 20;
-    }
-
-    .menu {
-        display: none !important;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .menu.show {
-        display: flex !important;
-    }
-}
-
-/* ===== TÍTULO ===== */
+/* TÍTULO */
 .titulo {
     text-align: center;
-    margin-top: 90px;
-    position: relative;
-    z-index: 9;
+    margin-top: 40px;
 }
 
 .titulo h1 {
+    font-family: 'Mountains of Christmas', cursive;
     font-size: 60px;
-    margin: 0;
+    text-shadow: 0 0 20px rgba(255,206,0,0.6);
 }
 
-.titulo p {
-    font-size: 22px;
-    margin-top: 10px;
-    opacity: 0.9;
+/* CONTADOR */
+#contenedor-cuenta {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-/* Mini-fondo invisible para contraste (WAVE fix sin afectar diseño) */
-.titulo h1,
-.titulo p {
-    background-color: rgba(0, 0, 0, 0.01);
-    padding: 2px 4px;
-    border-radius: 4px;
+.caja-tiempo {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(145deg, #0a3b2a, #05261b);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
 }
 
-/* ===== IMAGEN CENTRAL ===== */
-.contenedor-superior {
+/* CINTA */
+.caja-tiempo::before,
+.caja-tiempo::after {
+    content: "";
     position: absolute;
-    top: 70%;
+    background: #b81414;
+}
+
+.caja-tiempo::before {
+    width: 18px;
+    height: 100%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 5;
+    transform: translateX(-50%);
+}
+
+.caja-tiempo::after {
+    height: 18px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* NÚMERO */
+.numero {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--gold);
+    z-index: 2;
+    text-shadow: 2px 2px 0 black, 0 0 15px rgba(255,206,0,0.8);
+}
+
+/* TEXTO */
+.texto {
+    font-size: 12px;
+    margin-top: 6px;
+    letter-spacing: 2px;
+    background: rgba(0,0,0,0.6);
+    padding: 4px 8px;
+    border-radius: 6px;
+    z-index: 2;
+}
+
+/* MENSAJE NAVIDAD */
+#mensaje-navidad {
+    display: none;
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 80px;
+    color: var(--gold);
+    margin-top: 40px;
+    text-shadow: 4px 4px 0 #8b0000;
+}
+
+/* IMAGEN */
+.contenedor-superior {
+    margin-top: auto;
+    margin-bottom: -40px;
 }
 
 .contenedor-superior img {
-    width: 1000px;
-    height: auto;
+    width: 90%;
+    max-width: 850px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+    }
+    .menu.show {
+        display: flex;
+    }
+    .menu-btn {
+        display: block;
+        margin: 15px;
+    }
+    .titulo h1 {
+        font-size: 38px;
+    }
 }
